@@ -1,0 +1,27 @@
+services:
+  app1:
+    build: ./backend
+    expose:
+      - "8080"
+
+  app2:
+    build: ./backend
+    expose:
+      - "8080"
+
+  app3:
+    build: ./backend
+    expose:
+      - "8080"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/files:/usr/share/nginx/html
+    depends_on:
+      - app1
+      - app2
+      - app3
