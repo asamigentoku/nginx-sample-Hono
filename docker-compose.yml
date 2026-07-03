@@ -1,16 +1,22 @@
 services:
   app1:
     build: ./backend
+    environment:
+      - APP_NAME=app1
     expose:
       - "8080"
 
   app2:
     build: ./backend
+    environment:
+      - APP_NAME=app2
     expose:
       - "8080"
 
   app3:
     build: ./backend
+    environment:
+      - APP_NAME=app3
     expose:
       - "8080"
 

@@ -20,12 +20,7 @@ app.get("/users", (c) => {
 
 app.get("/where", (c) => {
   return c.json({
-    method: c.req.method,
-    url: c.req.url,
-    host: c.req.header("host"),
-    userAgent: c.req.header("user-agent"),
-    forwardedFor: c.req.header("x-forwarded-for"),
-    realIp: c.req.header("x-real-ip"),
+    server: process.env.APP_NAME,
   });
 });
 
